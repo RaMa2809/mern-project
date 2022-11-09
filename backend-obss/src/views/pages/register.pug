@@ -1,0 +1,51 @@
+extends ../layout/guest
+
+block body-classes
+  body.register-page
+    .register-box
+      .register-logo
+        a(href='#')
+          b Admin
+          | Panel
+      .card
+        .card-body.register-card-body
+          p.login-box-msg Register a new membership
+          form#RegisterForm(action='/registerUser' method='post')
+            .input-group.mb-3
+                input.form-control(type='text' name='name' placeholder='Full name')
+                .input-group-append
+                  .input-group-text
+                    span.fas.fa-user
+            .input-group.mb-3
+              input.form-control(type='email'  name='email' placeholder='Email')
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-envelope
+            .input-group.mb-3
+              input.form-control(type='password'  name='password' placeholder='Password')
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-lock
+            .input-group.mb-3
+              input.form-control(type='password' name='confirm_password' placeholder='Retype password')
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-lock
+            .row
+              .col-8
+                .icheck-primary
+                  input#agreeTerms(type='checkbox' name='terms' value='agree')
+                  label(for='agreeTerms')
+                    | I agree to the
+                    a(href='#')  terms
+              .col-4
+                button.btn.btn-primary.btn-block#registerSubmit(type='submit') Register
+          //.social-auth-links.text-center
+          //  p - OR -
+          //  a.btn.btn-block.btn-primary(href='#')
+          //    i.fab.fa-facebook.mr-2
+          //    | Sign up using Facebook
+          //  a.btn.btn-block.btn-danger(href='#')
+          //    i.fab.fa-google-plus.mr-2
+          //    | Sign up using Google+
+          a.text-center(href='/login') I already have a membership
